@@ -2,7 +2,6 @@
 
 declare -r SPADES_BIN_DIR=$(dirname $0)
 declare -x PATH=${SPADES_BIN_DIR}:${PATH}
-declare SubProgram=$(echo ${1} | tr '[A-Z]' '[a-z]')
 
 function usage() {
     cat <<EOF
@@ -17,6 +16,8 @@ EOF
 }
 
 if [[ $# -lt 1 ]]; then usage && exit 1; fi
+
+declare SubProgram=$(echo ${1} | tr '[A-Z]' '[a-z]')
 
 case $SubProgram in
     dna)
